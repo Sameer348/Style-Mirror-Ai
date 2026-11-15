@@ -17,7 +17,7 @@ h2{font-family:Manrope;margin:0 0 8px;font-size:23px}.muted{color:#a6a4b6;font-s
 
 /* ---- v2 additions ---- */
 a{color:#c9b6ff}a.primary,a.secondary{display:inline-block;text-decoration:none}a.primary{color:#100c1b}
-.nav{gap:12px;flex-wrap:wrap}.logo{text-decoration:none;color:#f5f5fa}
+.nav{gap:12px;flex-wrap:wrap}.logo{text-decoration:none;color:#f5f5fa;display:inline-flex;align-items:center;gap:10px}.logo img{border-radius:9px}
 .navLinks{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .navLink{color:#c8c2dc;text-decoration:none;padding:8px 12px;border-radius:10px;border:1px solid transparent;background:none;font-size:14px}
 .navLink:hover{background:#151726}.navLink.active{border-color:#29283a;color:#fff}.navLink.cta{border-color:#8e70d1;color:#fff}

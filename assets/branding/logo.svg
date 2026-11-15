@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>StyleMirror AI</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b69cff"/>
+      <stop offset="1" stop-color="#6a47d1"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- mirror -->
+  <path d="M166 404 V222 a90 90 0 0 1 180 0 V404 Z" fill="url(#glass)" stroke="#fff" stroke-width="22" stroke-linejoin="round"/>
+  <!-- glass highlight -->
+  <path d="M196 250 q4 -42 40 -56" fill="none" stroke="#fff" stroke-opacity="0.55" stroke-width="10" stroke-linecap="round"/>
+  <!-- hanger -->
+  <path d="M256 268 v-14 a17 17 0 1 0 -17 -17" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 268 L194 320 H318 Z" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round"/>
+  <!-- stand -->
+  <path d="M136 424 H376" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+  <!-- AI sparkle -->
+  <path d="M384 92 C389 122 402 133 430 138 C402 143 389 154 384 184 C379 154 366 143 338 138 C366 133 379 122 384 92 Z" fill="#fff"/>
+  <path d="M420 196 C422 207 427 212 438 214 C427 216 422 221 420 232 C418 221 413 216 402 214 C413 212 418 207 420 196 Z" fill="#fff" opacity="0.8"/>
+</svg>

@@ -1,4 +1,56 @@
-# StyleMirror AI
+<p align="center">
+  <img src="assets/branding/logo-512.png" width="120" alt="StyleMirror AI logo" />
+</p>
+
+<h1 align="center">StyleMirror AI</h1>
+
+<p align="center"><b>Try it on. See your style.</b><br/>Virtual try-on for clothes and glasses, plus a 3D fashion studio.</p>
+
+<p align="center">
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-14-000000?logo=nextdotjs&logoColor=white" />
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" />
+  <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Auth%20%2B%20Storage-3ECF8E?logo=supabase&logoColor=white" />
+  <img alt="MediaPipe" src="https://img.shields.io/badge/MediaPipe-Face%20Landmarker-0097A7" />
+  <img alt="Three.js" src="https://img.shields.io/badge/Three.js-3D-000000?logo=threedotjs&logoColor=white" />
+  <img alt="Category" src="https://img.shields.io/badge/category-Shopping%20%26%20Fashion-8062D8" />
+</p>
+
+<p align="center">
+  <img src="assets/branding/feature-graphic.png" alt="StyleMirror AI feature graphic" />
+</p>
+
+## About
+
+StyleMirror AI lets shoppers preview clothes and glasses on themselves before they buy. Upload your photo and a garment for an AI try-on, try five glasses frame styles on a selfie or a live webcam, or inspect 3D avatars in the studio. Everything is privacy-first: AI processing needs explicit consent, and the glasses and 3D features never leave your browser.
+
+**Category:** Shopping & Fashion (secondary: Lifestyle). Store-style copy, topics and screenshot captions are in [`LISTING.md`](LISTING.md).
+
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><img src="screenshots/01_landing.png" width="420" /><br/><sub>Landing page</sub></td>
+    <td align="center"><img src="screenshots/02_clothes_tryon.png" width="420" /><br/><sub>AI clothes try-on with consent</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="screenshots/03_glasses_photo.png" width="420" /><br/><sub>Glasses photo: 5 frame styles and fit controls</sub></td>
+    <td align="center"><img src="screenshots/04_live_camera_consent.png" width="420" /><br/><sub>Live glasses: camera consent first</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="screenshots/05_3d_studio.png" width="420" /><br/><sub>3D fashion studio</sub></td>
+    <td align="center"><img src="screenshots/06_privacy.png" width="420" /><br/><sub>Privacy and data handling</sub></td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="screenshots/07_mobile_landing.png" width="200" alt="Mobile landing" />
+  &nbsp;&nbsp;
+  <img src="screenshots/08_mobile_studio.png" width="200" alt="Mobile studio" />
+</p>
+
+<sub>Screenshots use illustrated sample images; no AI result is shown because generating one needs a live provider.</sub>
+
+## Features
 
 A virtual try-on platform with four modes:
 

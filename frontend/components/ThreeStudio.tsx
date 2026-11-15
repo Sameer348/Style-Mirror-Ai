@@ -110,8 +110,9 @@ export function ThreeStudio() {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.2;
     const resetView = () => {
-      camera.position.set(0, 0.6, 6.2);
-      controls.target.set(0, 0.1, 0);
+      // Frames the whole normalised avatar (floor at -1.2, height 2.6 + head).
+      camera.position.set(0, 0.9, 7.4);
+      controls.target.set(0, 0.35, 0);
       controls.update();
     };
     resetView();

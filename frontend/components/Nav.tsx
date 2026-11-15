@@ -15,6 +15,8 @@ export function Nav() {
   return (
     <nav className="nav" aria-label="Main">
       <Link href="/" className="logo">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/icon.svg" alt="" width={34} height={34} />
         StyleMirror <span>AI</span>
       </Link>
       <div className="navLinks">
