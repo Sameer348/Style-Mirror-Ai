@@ -1,4 +1,4 @@
-import { API_URL } from "./config";
+import { apiConfigured, apiUrl } from "./config";
 
 export type Category = "upper_body" | "lower_body" | "dresses";
 export type JobStatus = "queued" | "processing" | "succeeded" | "failed";
@@ -73,11 +73,18 @@ async function toApiError(res: Response): Promise<ApiError> {
 
 export async function apiFetch(path: string, init: RequestInit & { token?: string | null } = {}): Promise<Response> {
   const { token, headers, ...rest } = init;
+  if (!apiConfigured()) {
+    throw new ApiError(
+      "AI try-on is not connected on this website yet (no backend API URL in config.js).",
+      0,
+      "api_not_configured",
+    );
+  }
   const h = new Headers(headers);
   if (token) h.set("Authorization", `Bearer ${token}`);
   let res: Response;
   try {
-    res = await fetch(`${API_URL}${path}`, { ...rest, headers: h });
+    res = await fetch(`${apiUrl()}${path}`, { ...rest, headers: h });
   } catch (e) {
     if (e instanceof DOMException && e.name === "AbortError") throw e;
     throw new ApiError(NETWORK_MESSAGE, 0, "network_error");

@@ -18,9 +18,21 @@ const csp = [
   "form-action 'self'",
 ].join("; ");
 
+// STATIC_EXPORT=1 builds plain HTML/JS into out/ for static hosts (Hostinger,
+// cPanel, S3...). Security headers then come from public/.htaccess instead.
+const staticExport = process.env.STATIC_EXPORT === "1";
+
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  ...(staticExport
+    ? {
+        output: "export",
+        trailingSlash: true,
+        images: { unoptimized: true },
+        env: { NEXT_PUBLIC_STATIC_EXPORT: "1" },
+      }
+    : {}),
   async headers() {
     return [
       {
@@ -37,4 +49,6 @@ const nextConfig = {
     ];
   },
 };
+// Static export can't send headers; public/.htaccess provides them instead.
+if (staticExport) delete nextConfig.headers;
 export default nextConfig;

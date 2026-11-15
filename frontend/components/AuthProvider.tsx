@@ -1,5 +1,5 @@
 "use client";
-import type { Session } from "@supabase/supabase-js";
+import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { getSupabase } from "@/lib/supabase";
 
@@ -22,12 +22,23 @@ const AuthContext = createContext<AuthState>({
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const supabase = getSupabase();
+  // Created after mount: config may come from /config.js at runtime, and the
+  // statically pre-rendered HTML must match the first client render.
+  const [supabase, setSupabase] = useState<SupabaseClient | null | undefined>(undefined);
   const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(Boolean(supabase));
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!supabase) return;
+    setSupabase(getSupabase());
+  }, []);
+
+  useEffect(() => {
+    if (supabase === undefined) return; // not resolved yet
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
     let active = true;
     supabase.auth.getSession().then(({ data }) => {
       if (active) {

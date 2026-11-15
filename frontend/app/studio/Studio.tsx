@@ -36,7 +36,16 @@ export function Studio() {
         </div>
         <div className="statusPills" aria-label="Service status">
           <span className={`pill ${health?.tryon_configured ? "ok" : "off"}`}>
-            AI try-on: {health ? (health.tryon_configured ? health.provider : "not configured") : error ? "offline" : "…"}
+            AI try-on:{" "}
+            {health
+              ? health.tryon_configured
+                ? health.provider
+                : "not configured"
+              : error
+                ? error.includes("not connected")
+                  ? "not connected"
+                  : "offline"
+                : "…"}
           </span>
           <span className="pill ok">Glasses: on-device</span>
         </div>

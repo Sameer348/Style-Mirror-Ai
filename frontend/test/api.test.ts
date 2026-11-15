@@ -70,3 +70,17 @@ describe("pollJob", () => {
     await expect(pollJob(job(), { intervalMs: 5, timeoutMs: 20 })).rejects.toMatchObject({ code: "client_timeout" });
   });
 });
+
+describe("static build without API", () => {
+  it("does not call fetch when no API URL is configured", async () => {
+    vi.resetModules();
+    vi.stubEnv("NEXT_PUBLIC_STATIC_EXPORT", "1");
+    vi.stubEnv("NEXT_PUBLIC_API_URL", "");
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    const mod = await import("@/lib/api");
+    await expect(mod.getHealth()).rejects.toMatchObject({ code: "api_not_configured" });
+    expect(fetchMock).not.toHaveBeenCalled();
+    vi.unstubAllEnvs();
+  });
+});

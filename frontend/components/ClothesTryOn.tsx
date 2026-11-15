@@ -112,10 +112,12 @@ export function ClothesTryOn({ health, healthError, onRetryHealth }: Props) {
 
       {healthError && (
         <div className="banner warn" role="alert">
-          Can&apos;t reach the StyleMirror server: {healthError}{" "}
-          <button className="link" onClick={onRetryHealth}>
-            Retry
-          </button>
+          {healthError.includes("not connected") ? healthError : <>Can&apos;t reach the StyleMirror server: {healthError}</>}{" "}
+          {!healthError.includes("not connected") && (
+            <button className="link" onClick={onRetryHealth}>
+              Retry
+            </button>
+          )}
         </div>
       )}
       {blocker && (

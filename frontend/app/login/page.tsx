@@ -8,8 +8,7 @@ import { getSupabase } from "@/lib/supabase";
 type Mode = "signin" | "signup" | "magic";
 
 export default function LoginPage() {
-  const supabase = getSupabase();
-  const { email: signedInAs } = useAuth();
+  const { email: signedInAs, enabled, loading } = useAuth();
   const router = useRouter();
   const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
@@ -21,13 +20,14 @@ export default function LoginPage() {
     if (signedInAs) router.replace("/studio");
   }, [signedInAs, router]);
 
-  if (!supabase) {
+  if (loading) return <p className="muted">Loading…</p>;
+  if (!enabled) {
     return (
       <section className="panel narrow">
         <h2>Sign in</h2>
         <p className="muted">
-          Accounts are not configured on this deployment. Set NEXT_PUBLIC_SUPABASE_URL and
-          NEXT_PUBLIC_SUPABASE_ANON_KEY to enable them. You can still use the <Link href="/studio">studio</Link>.
+          Accounts are not configured on this deployment. Set the Supabase URL and anon key (in config.js or
+          NEXT_PUBLIC_SUPABASE_* variables) to enable them. You can still use the <Link href="/studio">studio</Link>.
         </p>
       </section>
     );
@@ -35,6 +35,7 @@ export default function LoginPage() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    const supabase = getSupabase();
     if (!supabase) return;
     setBusy(true);
     setMsg(null);

@@ -12,3 +12,5 @@ __pycache__/
 .DS_Store
 frontend/public/mediapipe/
 frontend/tsconfig.tsbuildinfo
+frontend/out/
+stylemirror-hostinger.zip

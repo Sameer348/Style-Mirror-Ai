@@ -22,6 +22,11 @@ export const viewport: Viewport = { themeColor: "#080a12", width: "device-width"
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Runtime settings for static hosting (see public/config.js). Must load before the app. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/config.js" />
+      </head>
       <body>
         <AuthProvider>
           <div className="shell">

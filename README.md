@@ -162,7 +162,7 @@ cd frontend && npm run lint && npm run typecheck && npm test && npm run build
 - Security headers on both apps: CSP, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy, and HSTS in production. Request IDs are logged without tokens or image data.
 - HTTPS is required in production (and for webcam access).
 
-See [docs/API.md](docs/API.md) for endpoints and curl examples, and [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for hosting.
+See [docs/API.md](docs/API.md) for endpoints and curl examples, [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for hosting, and [docs/HOSTINGER.md](docs/HOSTINGER.md) for static hosting on Hostinger/cPanel (`npm run build:static`).
 
 ## Known limitations
 
